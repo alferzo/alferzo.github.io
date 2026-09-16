@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Alvin Fernandez — Architect / Educator / Researcher</title>
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
 
     <style>
 
-        /* =========================
-           RESET
-        ========================= */
+        /* =====================================================
+           BASIC
+        ===================================================== */
 
         * {
             margin: 0;
@@ -29,7 +34,7 @@
         }
 
         body {
-            background: #f2f0e9;
+            background: #f3f1eb;
             color: #0b1c2d;
             font-family: "Space Grotesk", sans-serif;
             overflow-x: hidden;
@@ -41,31 +46,31 @@
         }
 
 
-        /* =========================
-           VARIABLES
-        ========================= */
-
         :root {
+
             --navy: #0b1c2d;
-            --navy-light: #17334d;
-            --gold: #c7a45a;
-            --cream: #f2f0e9;
-            --line: rgba(11, 28, 45, 0.25);
+            --gold: #c6a052;
+            --cream: #f3f1eb;
+            --grey: #d9d6ce;
+            --line: rgba(11, 28, 45, 0.22);
+
         }
 
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
         header {
+
             position: fixed;
+
             top: 0;
             left: 0;
 
             width: 100%;
 
-            padding: 26px 42px;
+            padding: 25px 42px;
 
             display: flex;
             justify-content: space-between;
@@ -73,376 +78,557 @@
 
             z-index: 100;
 
-            mix-blend-mode: multiply;
+            background: transparent;
         }
+
 
         .logo {
+
             font-size: 19px;
+
             font-weight: 600;
+
             letter-spacing: 0.32em;
+
         }
 
+
         nav {
+
             display: flex;
+
             gap: 30px;
 
             font-family: "DM Mono", monospace;
+
             font-size: 10px;
-            text-transform: uppercase;
+
             letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
         }
+
 
         nav a {
+
             position: relative;
+
         }
 
+
         nav a::after {
+
             content: "";
 
             position: absolute;
+
             left: 0;
-            bottom: -5px;
+            bottom: -6px;
 
             width: 0;
             height: 1px;
 
             background: var(--gold);
 
-            transition: width 0.3s ease;
+            transition: width .3s ease;
+
         }
+
 
         nav a:hover::after {
+
             width: 100%;
+
         }
 
 
-        /* =========================
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
-            min-height: 100vh;
+
+            height: 100vh;
+
+            min-height: 720px;
 
             position: relative;
 
-            display: flex;
-            align-items: center;
-
-            padding: 130px 42px 60px;
+            padding: 120px 42px 50px;
 
             overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+
         }
+
+
+        /* small discipline list */
 
         .hero-intro {
+
             position: absolute;
 
-            top: 155px;
             left: 42px;
 
+            top: 150px;
+
+            z-index: 10;
+
             font-family: "DM Mono", monospace;
+
             font-size: 10px;
+
             line-height: 2;
 
+            letter-spacing: .2em;
+
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-        }
 
-        .hero-intro span {
-            display: block;
         }
 
 
-        /* Geometric architectural field */
+        .hero-intro::before {
 
-        .hero-geometry {
+            content: "";
+
             position: absolute;
 
-            width: 62vw;
-            height: 80vh;
+            width: 1px;
 
-            right: -7vw;
-            top: 12vh;
+            height: 105px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    transparent 0%,
-                    transparent 25%,
-                    var(--navy) 25.2%,
-                    var(--navy) 75%,
-                    transparent 75.2%
-                );
+            left: -15px;
 
-            transform: rotate(-5deg);
+            top: 1px;
 
-            opacity: 0.98;
+            background: var(--gold);
+
         }
 
-        .hero-geometry::before {
+
+        /* =====================================================
+           ARCHITECTURAL SHAPE
+        ===================================================== */
+
+        .hero-shape {
+
+            position: absolute;
+
+            width: 61vw;
+
+            height: 83vh;
+
+            right: -5vw;
+
+            top: 11vh;
+
+            background: var(--navy);
+
+            z-index: 1;
+
+            clip-path: polygon(
+                34% 0%,
+                100% 0%,
+                100% 78%,
+                45% 100%,
+                0% 47%
+            );
+
+        }
+
+
+        /* inner opening */
+
+        .hero-shape::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 40%;
+
+            height: 46%;
+
+            right: 14%;
+
+            top: 21%;
+
+            background: var(--cream);
+
+            transform: rotate(31deg);
+
+        }
+
+
+        /* gold construction line */
+
+        .hero-shape::before {
+
             content: "";
 
             position: absolute;
 
             width: 48%;
-            height: 48%;
 
-            right: 9%;
-            top: 22%;
+            height: 53%;
+
+            right: 10%;
+
+            top: 16%;
 
             border: 1px solid var(--gold);
 
-            transform: rotate(35deg);
-        }
+            transform: rotate(31deg);
 
-        .hero-geometry::after {
-            content: "";
-
-            position: absolute;
-
-            width: 38%;
-            height: 38%;
-
-            right: 15%;
-            top: 29%;
-
-            background: var(--cream);
-
-            transform: rotate(35deg);
         }
 
 
-        /* Main typography */
 
-        .hero-name {
+        /* =====================================================
+           HERO TEXT
+        ===================================================== */
+
+        .hero-content {
+
             position: relative;
 
-            z-index: 5;
+            z-index: 20;
 
-            font-size: clamp(70px, 12vw, 185px);
+            width: 100%;
+
+        }
+
+
+        .hero-name {
+
+            font-size: clamp(
+                70px,
+                11vw,
+                175px
+            );
 
             font-weight: 500;
 
-            line-height: 0.78;
+            line-height: .78;
 
-            letter-spacing: -0.075em;
+            letter-spacing: -.075em;
 
             text-transform: uppercase;
+
         }
+
 
         .hero-name span {
+
             display: block;
+
         }
 
+
         .hero-name .last {
-            margin-left: 9vw;
+
+            margin-left: 5vw;
+
         }
 
 
         .hero-role {
-            position: relative;
 
-            z-index: 6;
-
-            margin-top: 42px;
+            margin-top: 45px;
 
             font-family: "DM Mono", monospace;
 
-            font-size: clamp(10px, 1vw, 14px);
+            font-size: clamp(
+                10px,
+                1vw,
+                14px
+            );
 
-            letter-spacing: 0.19em;
+            letter-spacing: .18em;
 
             text-transform: uppercase;
+
         }
 
 
+
+        /* =====================================================
+           RIGHT TEXT
+        ===================================================== */
+
         .hero-side {
+
             position: absolute;
 
-            right: 55px;
-            bottom: 100px;
+            right: 48px;
 
-            z-index: 8;
+            top: 38%;
+
+            z-index: 30;
 
             color: var(--cream);
 
             font-family: "DM Mono", monospace;
 
-            font-size: 10px;
+            font-size: 11px;
 
-            line-height: 2.2;
+            line-height: 2.5;
 
-            letter-spacing: 0.25em;
+            letter-spacing: .28em;
 
             text-transform: uppercase;
+
         }
+
 
         .hero-side .gold {
+
             color: var(--gold);
+
         }
 
 
-        .scroll-label {
+        /* =====================================================
+           SCROLL
+        ===================================================== */
+
+        .scroll {
+
             position: absolute;
 
-            bottom: 45px;
+            bottom: 35px;
+
             left: 42px;
 
+            z-index: 30;
+
             display: flex;
+
             align-items: center;
-            gap: 16px;
+
+            gap: 17px;
 
             font-family: "DM Mono", monospace;
 
             font-size: 9px;
 
-            letter-spacing: 0.2em;
+            letter-spacing: .18em;
 
             text-transform: uppercase;
+
         }
 
+
         .scroll-line {
-            width: 60px;
+
+            width: 70px;
+
             height: 1px;
 
             background: var(--gold);
+
         }
 
 
-        /* =========================
-           SECTION
-        ========================= */
+
+        /* =====================================================
+           GENERAL SECTION
+        ===================================================== */
 
         .section {
+
+            position: relative;
+
             padding: 120px 42px;
 
             border-top: 1px solid var(--line);
 
-            position: relative;
         }
 
-        .section-header {
+
+        .section-top {
+
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
 
-            margin-bottom: 70px;
+            justify-content: space-between;
+
+            align-items: flex-end;
+
+            margin-bottom: 65px;
+
         }
+
 
         .section-number {
+
             font-family: "DM Mono", monospace;
 
             font-size: 10px;
 
             color: var(--gold);
 
-            letter-spacing: 0.2em;
+            letter-spacing: .2em;
+
+            margin-bottom: 10px;
+
         }
 
+
         .section-title {
-            font-size: clamp(38px, 6vw, 90px);
+
+            font-size: clamp(
+                42px,
+                6vw,
+                92px
+            );
 
             font-weight: 400;
 
-            letter-spacing: -0.06em;
+            letter-spacing: -.065em;
 
             text-transform: uppercase;
+
+            line-height: .9;
+
         }
 
+
         .section-link {
+
             font-family: "DM Mono", monospace;
 
             font-size: 9px;
 
+            letter-spacing: .18em;
+
             text-transform: uppercase;
 
-            letter-spacing: 0.18em;
         }
 
 
-        /* =========================
-           PROJECTS
-        ========================= */
 
-        .projects {
+        /* =====================================================
+           WORKS
+        ===================================================== */
+
+        .works {
+
             border-top: 1px solid var(--line);
+
         }
 
-        .project {
-            position: relative;
+
+        .work {
+
+            min-height: 155px;
 
             display: grid;
 
-            grid-template-columns: 70px 1fr 180px 30px;
+            grid-template-columns:
+                70px
+                1fr
+                220px
+                30px;
 
             align-items: center;
 
             gap: 30px;
 
-            min-height: 150px;
-
             border-bottom: 1px solid var(--line);
 
             transition:
-                background 0.4s ease,
-                padding 0.4s ease;
+                background .35s ease,
+                color .35s ease,
+                padding .35s ease;
+
         }
 
-        .project:hover {
+
+        .work:hover {
+
             background: var(--navy);
 
             color: var(--cream);
 
             padding-left: 25px;
+
             padding-right: 25px;
+
         }
 
-        .project-number {
+
+        .work-number {
+
             font-family: "DM Mono", monospace;
 
             font-size: 10px;
 
             color: var(--gold);
+
         }
 
-        .project-name {
-            font-size: clamp(24px, 3vw, 44px);
 
-            letter-spacing: -0.04em;
+        .work-name {
+
+            font-size: clamp(
+                25px,
+                3vw,
+                45px
+            );
+
+            letter-spacing: -.04em;
+
         }
 
-        .project-category {
+
+        .work-info {
+
             font-family: "DM Mono", monospace;
 
             font-size: 9px;
 
-            line-height: 1.8;
+            line-height: 1.9;
+
+            letter-spacing: .12em;
 
             text-transform: uppercase;
 
-            letter-spacing: 0.13em;
         }
 
-        .project-arrow {
-            font-size: 20px;
 
-            transition: transform 0.3s ease;
+        .work-arrow {
+
+            font-size: 22px;
+
+            transition: transform .3s ease;
+
         }
 
-        .project:hover .project-arrow {
+
+        .work:hover .work-arrow {
+
             transform: translateX(8px);
+
         }
 
 
-        /* =========================
+
+        /* =====================================================
            RESEARCH
-        ========================= */
+        ===================================================== */
 
         .research {
+
+            min-height: 85vh;
+
             background: var(--navy);
 
             color: var(--cream);
-
-            min-height: 80vh;
 
             display: grid;
 
@@ -451,44 +637,71 @@
             gap: 100px;
 
             align-items: center;
+
         }
+
 
         .research .section-number {
+
             color: var(--gold);
+
         }
+
 
         .research-title {
-            font-size: clamp(50px, 7vw, 110px);
 
-            line-height: 0.9;
+            font-size: clamp(
+                60px,
+                9vw,
+                140px
+            );
 
-            letter-spacing: -0.07em;
+            line-height: .78;
+
+            letter-spacing: -.075em;
+
         }
+
 
         .research-title span {
+
             display: block;
+
         }
 
-        .research-content {
-            max-width: 500px;
+
+        .research-copy {
+
+            max-width: 480px;
+
         }
+
 
         .research-lead {
+
             font-size: 24px;
 
-            line-height: 1.25;
+            line-height: 1.3;
 
-            margin-bottom: 45px;
+            margin-bottom: 50px;
+
         }
+
 
         .research-list {
-            border-top: 1px solid rgba(242,240,233,0.3);
+
+            border-top: 1px solid rgba(243,241,235,.3);
+
         }
 
+
         .research-item {
+
             padding: 18px 0;
 
-            border-bottom: 1px solid rgba(242,240,233,0.3);
+            border-bottom:
+                1px solid
+                rgba(243,241,235,.3);
 
             display: flex;
 
@@ -496,102 +709,150 @@
 
             font-family: "DM Mono", monospace;
 
-            font-size: 10px;
+            font-size: 9px;
+
+            letter-spacing: .15em;
 
             text-transform: uppercase;
 
-            letter-spacing: 0.14em;
         }
+
 
         .research-item span:last-child {
+
             color: var(--gold);
+
         }
 
 
-        /* =========================
+
+        /* =====================================================
            TEACHING
-        ========================= */
+        ===================================================== */
 
         .teaching {
+
             min-height: 75vh;
+
         }
 
+
         .teaching-grid {
+
             display: grid;
 
-            grid-template-columns: 1.3fr 0.7fr;
+            grid-template-columns:
+                1.3fr
+                .7fr;
 
             gap: 100px;
 
             align-items: end;
+
         }
 
-        .teaching-statement {
-            font-size: clamp(45px, 7vw, 105px);
 
-            line-height: 0.92;
+        .teaching-title {
 
-            letter-spacing: -0.07em;
+            font-size: clamp(
+                50px,
+                8vw,
+                125px
+            );
+
+            line-height: .84;
+
+            letter-spacing: -.075em;
+
         }
 
-        .teaching-statement em {
+
+        .teaching-title span {
+
             color: var(--gold);
 
-            font-style: normal;
         }
 
-        .teaching-description {
-            max-width: 400px;
 
-            font-size: 16px;
+        .teaching-copy {
+
+            max-width: 430px;
+
+            font-size: 17px;
 
             line-height: 1.6;
+
         }
 
 
-        /* =========================
+
+        /* =====================================================
            ABOUT
-        ========================= */
+        ===================================================== */
 
         .about {
-            background: #dedbd1;
+
+            background: #dfdcd3;
+
         }
+
 
         .about-grid {
+
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr
+                1fr;
 
             gap: 100px;
+
         }
+
 
         .about-name {
-            font-size: clamp(50px, 8vw, 120px);
 
-            line-height: 0.85;
+            font-size: clamp(
+                55px,
+                8vw,
+                125px
+            );
 
-            letter-spacing: -0.07em;
+            line-height: .82;
+
+            letter-spacing: -.075em;
+
         }
 
-        .about-text {
+
+        .about-copy {
+
             max-width: 500px;
 
             font-size: 18px;
 
             line-height: 1.55;
+
         }
 
+
         .about-meta {
+
             margin-top: 50px;
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr
+                1fr;
 
             border-top: 1px solid var(--line);
+
         }
 
-        .meta-item {
+
+        .meta {
+
             padding: 20px 0;
 
             border-bottom: 1px solid var(--line);
@@ -600,63 +861,85 @@
 
             font-size: 9px;
 
-            line-height: 1.7;
+            line-height: 1.8;
+
+            letter-spacing: .12em;
 
             text-transform: uppercase;
 
-            letter-spacing: 0.13em;
         }
 
 
-        /* =========================
+
+        /* =====================================================
            CONTACT
-        ========================= */
+        ===================================================== */
 
         .contact {
-            min-height: 70vh;
+
+            min-height: 75vh;
 
             display: flex;
 
             flex-direction: column;
 
             justify-content: space-between;
+
         }
+
 
         .contact-title {
-            font-size: clamp(70px, 13vw, 190px);
 
-            line-height: 0.78;
+            font-size: clamp(
+                70px,
+                13vw,
+                190px
+            );
 
-            letter-spacing: -0.08em;
+            line-height: .75;
+
+            letter-spacing: -.08em;
 
             text-transform: uppercase;
+
         }
 
+
         .contact-title span {
+
             display: block;
 
             margin-left: 10vw;
 
             color: var(--gold);
+
         }
 
+
         .contact-bottom {
+
             display: flex;
 
             justify-content: space-between;
 
-            align-items: end;
+            align-items: flex-end;
+
         }
 
-        .contact-email {
+
+        .email {
+
             font-size: 22px;
 
             border-bottom: 1px solid var(--navy);
 
-            padding-bottom: 6px;
+            padding-bottom: 5px;
+
         }
 
+
         .socials {
+
             display: flex;
 
             gap: 30px;
@@ -665,22 +948,25 @@
 
             font-size: 9px;
 
+            letter-spacing: .15em;
+
             text-transform: uppercase;
 
-            letter-spacing: 0.15em;
         }
 
 
-        /* =========================
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
-            padding: 28px 42px;
 
             background: var(--navy);
 
             color: var(--cream);
+
+            padding: 28px 42px;
 
             display: flex;
 
@@ -690,130 +976,223 @@
 
             font-size: 8px;
 
+            letter-spacing: .15em;
+
             text-transform: uppercase;
 
-            letter-spacing: 0.15em;
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 800px) {
 
+
             header {
-                padding: 22px 20px;
+
+                padding:
+                    22px
+                    20px;
+
             }
+
 
             nav {
+
                 display: none;
+
             }
+
 
             .hero {
-                padding: 130px 20px 60px;
 
-                min-height: 90vh;
+                min-height: 780px;
+
+                padding:
+                    130px
+                    20px
+                    60px;
+
             }
+
 
             .hero-intro {
+
                 left: 20px;
 
-                top: 120px;
+                top: 115px;
+
             }
+
 
             .hero-name {
-                font-size: clamp(54px, 16vw, 110px);
+
+                font-size:
+                    clamp(
+                        55px,
+                        15vw,
+                        105px
+                    );
+
             }
+
 
             .hero-name .last {
-                margin-left: 4vw;
+
+                margin-left: 3vw;
+
             }
 
-            .hero-geometry {
+
+            .hero-shape {
+
                 width: 100vw;
 
-                right: -35vw;
+                height: 72vh;
 
-                opacity: 0.95;
+                right: -38vw;
+
+                top: 23vh;
+
             }
+
 
             .hero-side {
+
                 right: 20px;
 
-                bottom: 90px;
+                top: 47%;
+
+                font-size: 9px;
+
             }
 
-            .scroll-label {
-                left: 20px;
+
+            .hero-role {
+
+                font-size: 9px;
+
+                line-height: 1.8;
+
+                max-width: 90vw;
+
             }
+
+
+            .scroll {
+
+                left: 20px;
+
+            }
+
 
             .section {
-                padding: 80px 20px;
+
+                padding:
+                    80px
+                    20px;
+
             }
 
-            .section-header {
+
+            .section-top {
+
                 margin-bottom: 45px;
+
             }
 
-            .project {
-                grid-template-columns: 35px 1fr 25px;
+
+            .work {
+
+                grid-template-columns:
+                    35px
+                    1fr
+                    25px;
 
                 gap: 15px;
 
                 min-height: 120px;
+
             }
 
-            .project-category {
+
+            .work-info {
+
                 display: none;
+
             }
+
 
             .research {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
 
                 gap: 60px;
 
-                min-height: auto;
+                min-height:
+                    auto;
+
             }
+
 
             .teaching-grid,
             .about-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
 
                 gap: 60px;
+
             }
+
 
             .contact {
-                min-height: 65vh;
+
+                min-height: 70vh;
+
             }
 
+
             .contact-bottom {
+
                 flex-direction: column;
 
                 align-items: flex-start;
 
                 gap: 40px;
+
             }
 
+
             footer {
-                padding: 25px 20px;
 
                 flex-direction: column;
 
                 gap: 15px;
+
+                padding:
+                    25px
+                    20px;
+
             }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
@@ -821,17 +1200,28 @@
         ALFERZO
     </a>
 
+
     <nav>
 
-        <a href="#works">Works</a>
+        <a href="#works">
+            Works
+        </a>
 
-        <a href="#research">Research</a>
+        <a href="#research">
+            Research
+        </a>
 
-        <a href="#teaching">Teaching</a>
+        <a href="#teaching">
+            Teaching
+        </a>
 
-        <a href="#about">About</a>
+        <a href="#about">
+            About
+        </a>
 
-        <a href="#contact">Contact</a>
+        <a href="#contact">
+            Contact
+        </a>
 
     </nav>
 
@@ -839,75 +1229,121 @@
 
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
+
     <div class="hero-intro">
 
-        <span>Architecture</span>
-        <span>Digital Design</span>
-        <span>Kinetic Systems</span>
-        <span>Research</span>
-        <span>Education</span>
+        <span>
+            Architecture
+        </span>
+
+        <span>
+            Digital Design
+        </span>
+
+        <span>
+            Kinetic Systems
+        </span>
+
+        <span>
+            Research
+        </span>
+
+        <span>
+            Education
+        </span>
 
     </div>
 
 
-    <div class="hero-geometry"></div>
+
+    <div class="hero-shape"></div>
 
 
-    <div>
+
+    <div class="hero-content">
+
 
         <h1 class="hero-name">
 
-            <span>Alvin</span>
+            <span>
+                Alvin
+            </span>
 
-            <span class="last">Fernandez</span>
+            <span class="last">
+                Fernandez
+            </span>
 
         </h1>
 
 
-        <p class="hero-role">
+        <div class="hero-role">
 
-            Assistant Architect / Assistant Professor / Researcher
+            Assistant Architect
+            /
+            Assistant Professor
+            /
+            Researcher
 
-        </p>
+        </div>
 
     </div>
+
 
 
     <div class="hero-side">
 
-        <div>Spaces</div>
-        <div>Systems</div>
-        <div>People</div>
-        <div class="gold">Potential</div>
+        <div>
+            Spaces
+        </div>
+
+        <div>
+            Systems
+        </div>
+
+        <div>
+            People
+        </div>
+
+        <div class="gold">
+            Potential
+        </div>
 
     </div>
 
 
-    <div class="scroll-label">
 
-        <span class="scroll-line"></span>
+    <div class="scroll">
 
-        <span>Scroll / 01</span>
+        <div class="scroll-line"></div>
+
+        <div>
+            01 / Scroll Down
+        </div>
 
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      SELECTED WORKS
-========================= -->
+===================================================== -->
 
-<section class="section" id="works">
+<section
+    class="section"
+    id="works"
+>
 
-    <div class="section-header">
+
+    <div class="section-top">
 
         <div>
 
@@ -921,76 +1357,110 @@
 
         </div>
 
+
         <div class="section-link">
-            View Projects →
+            View All Projects →
         </div>
 
     </div>
 
 
-    <div class="projects">
+
+    <div class="works">
 
 
-        <a href="#" class="project">
+        <a
+            href="#"
+            class="work"
+        >
 
-            <div class="project-number">
+            <div class="work-number">
                 01
             </div>
 
-            <div class="project-name">
+
+            <div class="work-name">
                 Project Name
             </div>
 
-            <div class="project-category">
-                Architecture<br>
+
+            <div class="work-info">
+
+                Architecture
+                <br>
+
                 2026
+
             </div>
 
-            <div class="project-arrow">
+
+            <div class="work-arrow">
                 →
             </div>
 
         </a>
 
 
-        <a href="#" class="project">
 
-            <div class="project-number">
+        <a
+            href="#"
+            class="work"
+        >
+
+            <div class="work-number">
                 02
             </div>
 
-            <div class="project-name">
+
+            <div class="work-name">
                 Project Name
             </div>
 
-            <div class="project-category">
-                Kinetic Architecture<br>
+
+            <div class="work-info">
+
+                Kinetic Architecture
+                <br>
+
                 2025
+
             </div>
 
-            <div class="project-arrow">
+
+            <div class="work-arrow">
                 →
             </div>
 
         </a>
 
 
-        <a href="#" class="project">
 
-            <div class="project-number">
+        <a
+            href="#"
+            class="work"
+        >
+
+            <div class="work-number">
                 03
             </div>
 
-            <div class="project-name">
+
+            <div class="work-name">
                 Project Name
             </div>
 
-            <div class="project-category">
-                Digital Fabrication<br>
+
+            <div class="work-info">
+
+                Digital Fabrication
+                <br>
+
                 2024
+
             </div>
 
-            <div class="project-arrow">
+
+            <div class="work-arrow">
                 →
             </div>
 
@@ -999,15 +1469,20 @@
 
     </div>
 
+
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      RESEARCH
-========================= -->
+===================================================== -->
 
-<section class="section research" id="research">
+<section
+    class="section research"
+    id="research"
+>
+
 
     <div>
 
@@ -1015,27 +1490,41 @@
             02 / Research
         </div>
 
+
         <h2 class="research-title">
 
-            <span>Ideas</span>
-            <span>In</span>
-            <span>Motion</span>
+            <span>
+                Ideas
+            </span>
+
+            <span>
+                In
+            </span>
+
+            <span>
+                Motion
+            </span>
 
         </h2>
 
     </div>
 
 
-    <div class="research-content">
+
+    <div class="research-copy">
+
 
         <p class="research-lead">
 
-            Exploring the intersection between architecture, technology, systems and human experience.
+            Exploring the intersection between
+            architecture, technology, systems
+            and human experience.
 
         </p>
 
 
         <div class="research-list">
+
 
             <div class="research-item">
 
@@ -1075,21 +1564,27 @@
 
             </div>
 
+
         </div>
 
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      TEACHING
-========================= -->
+===================================================== -->
 
-<section class="section teaching" id="teaching">
+<section
+    class="section teaching"
+    id="teaching"
+>
 
-    <div class="section-header">
+
+    <div class="section-top">
 
         <div>
 
@@ -1106,38 +1601,52 @@
     </div>
 
 
+
     <div class="teaching-grid">
 
-        <div class="teaching-statement">
+
+        <div class="teaching-title">
 
             Architecture
+
             <br>
 
             through
+
             <br>
 
-            <em>experimentation.</em>
+            <span>
+                experimentation.
+            </span>
 
         </div>
 
 
-        <div class="teaching-description">
+        <div class="teaching-copy">
 
             <p>
 
-                Exploring architecture education through design,
-                technology, digital fabrication, computational
-                thinking and experimental spatial systems.
+                Exploring architecture education
+                through design, technology,
+                digital fabrication, computational
+                thinking and experimental
+                spatial systems.
 
             </p>
 
+
             <br><br>
+
 
             <p>
 
-                Teaching Project 01<br><br>
+                Teaching Project 01
 
-                Teaching Project 02<br><br>
+                <br><br>
+
+                Teaching Project 02
+
+                <br><br>
 
                 Teaching Project 03
 
@@ -1145,19 +1654,25 @@
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      ABOUT
-========================= -->
+===================================================== -->
 
-<section class="section about" id="about">
+<section
+    class="section about"
+    id="about"
+>
 
-    <div class="section-header">
+
+    <div class="section-top">
 
         <div>
 
@@ -1174,20 +1689,26 @@
     </div>
 
 
+
     <div class="about-grid">
+
 
         <div class="about-name">
 
             Alvin
+
             <br>
+
             Fernandez
 
         </div>
 
 
+
         <div>
 
-            <div class="about-text">
+
+            <div class="about-copy">
 
                 Architect / Educator / Researcher
 
@@ -1195,61 +1716,86 @@
 
                 Bio goes here.
 
-                This space will later contain a more complete
-                profile, professional experience, academic
-                background and selected collaborations.
+                <br><br>
+
+                This section will later contain
+                professional experience, academic
+                background, selected collaborations
+                and other information.
 
             </div>
 
 
+
             <div class="about-meta">
 
-                <div class="meta-item">
 
-                    Based<br>
+                <div class="meta">
+
+                    Based
+
+                    <br>
+
                     Indonesia
 
                 </div>
 
 
-                <div class="meta-item">
+                <div class="meta">
 
-                    Focus<br>
+                    Focus
+
+                    <br>
+
                     Architecture / Technology
 
                 </div>
 
 
-                <div class="meta-item">
+                <div class="meta">
 
-                    Role<br>
+                    Role
+
+                    <br>
+
                     Assistant Professor
 
                 </div>
 
 
-                <div class="meta-item">
+                <div class="meta">
 
-                    Practice<br>
+                    Practice
+
+                    <br>
+
                     Design / Research
 
                 </div>
 
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      CONTACT
-========================= -->
+===================================================== -->
 
-<section class="section contact" id="contact">
+<section
+    class="section contact"
+    id="contact"
+>
+
 
     <div>
 
@@ -1258,6 +1804,7 @@
         </div>
 
     </div>
+
 
 
     <h2 class="contact-title">
@@ -1271,14 +1818,19 @@
     </h2>
 
 
+
     <div class="contact-bottom">
+
 
         <a
             href="mailto:your@email.com"
-            class="contact-email"
+            class="email"
         >
+
             your@email.com
+
         </a>
+
 
 
         <div class="socials">
@@ -1293,15 +1845,17 @@
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1309,9 +1863,11 @@
         ALFERZO
     </div>
 
+
     <div>
         © 2026 Alvin Fernandez
     </div>
+
 
     <div>
         Architecture / Research / Education
