@@ -4,139 +4,706 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Alvin Fernandez</title>
+    <title>Alvin Fernandez — Architect / Educator / Researcher</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f2;
-            color: #111;
-            line-height: 1.4;
+        html {
+            scroll-behavior: smooth;
         }
+
+        body {
+            background: #f2f0e9;
+            color: #0b1c2d;
+            font-family: "Space Grotesk", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --navy: #0b1c2d;
+            --navy-light: #17334d;
+            --gold: #c7a45a;
+            --cream: #f2f0e9;
+            --line: rgba(11, 28, 45, 0.25);
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         header {
-            padding: 30px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 26px 42px;
+
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #111;
+            align-items: center;
+
+            z-index: 100;
+
+            mix-blend-mode: multiply;
         }
 
-        header h1 {
-            font-size: 24px;
-            font-weight: 500;
+        .logo {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: 0.32em;
         }
 
         nav {
             display: flex;
             gap: 30px;
+
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
         }
 
         nav a {
-            color: #111;
-            text-decoration: none;
-            font-size: 14px;
+            position: relative;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        nav a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--gold);
+
+            transition: width 0.3s ease;
         }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 75vh;
-            padding: 60px 40px;
+            min-height: 100vh;
+
+            position: relative;
+
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+
+            padding: 130px 42px 60px;
+
+            overflow: hidden;
         }
 
-        .hero-title {
-            font-size: clamp(60px, 10vw, 160px);
-            font-weight: 400;
-            line-height: 0.9;
-            letter-spacing: -0.06em;
+        .hero-intro {
+            position: absolute;
+
+            top: 155px;
+            left: 42px;
+
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            line-height: 2;
+
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
         }
 
-        .hero-bottom {
+        .hero-intro span {
+            display: block;
+        }
+
+
+        /* Geometric architectural field */
+
+        .hero-geometry {
+            position: absolute;
+
+            width: 62vw;
+            height: 80vh;
+
+            right: -7vw;
+            top: 12vh;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    transparent 0%,
+                    transparent 25%,
+                    var(--navy) 25.2%,
+                    var(--navy) 75%,
+                    transparent 75.2%
+                );
+
+            transform: rotate(-5deg);
+
+            opacity: 0.98;
+        }
+
+        .hero-geometry::before {
+            content: "";
+
+            position: absolute;
+
+            width: 48%;
+            height: 48%;
+
+            right: 9%;
+            top: 22%;
+
+            border: 1px solid var(--gold);
+
+            transform: rotate(35deg);
+        }
+
+        .hero-geometry::after {
+            content: "";
+
+            position: absolute;
+
+            width: 38%;
+            height: 38%;
+
+            right: 15%;
+            top: 29%;
+
+            background: var(--cream);
+
+            transform: rotate(35deg);
+        }
+
+
+        /* Main typography */
+
+        .hero-name {
+            position: relative;
+
+            z-index: 5;
+
+            font-size: clamp(70px, 12vw, 185px);
+
+            font-weight: 500;
+
+            line-height: 0.78;
+
+            letter-spacing: -0.075em;
+
+            text-transform: uppercase;
+        }
+
+        .hero-name span {
+            display: block;
+        }
+
+        .hero-name .last {
+            margin-left: 9vw;
+        }
+
+
+        .hero-role {
+            position: relative;
+
+            z-index: 6;
+
+            margin-top: 42px;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: clamp(10px, 1vw, 14px);
+
+            letter-spacing: 0.19em;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero-side {
+            position: absolute;
+
+            right: 55px;
+            bottom: 100px;
+
+            z-index: 8;
+
+            color: var(--cream);
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+
+            line-height: 2.2;
+
+            letter-spacing: 0.25em;
+
+            text-transform: uppercase;
+        }
+
+        .hero-side .gold {
+            color: var(--gold);
+        }
+
+
+        .scroll-label {
+            position: absolute;
+
+            bottom: 45px;
+            left: 42px;
+
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 40px;
+            align-items: center;
+            gap: 16px;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+
+            letter-spacing: 0.2em;
+
+            text-transform: uppercase;
         }
 
-        .hero-description {
-            max-width: 500px;
-            font-size: 18px;
+        .scroll-line {
+            width: 60px;
+            height: 1px;
+
+            background: var(--gold);
         }
+
+
+        /* =========================
+           SECTION
+        ========================= */
 
         .section {
-            padding: 100px 40px;
-            border-top: 1px solid #111;
+            padding: 120px 42px;
+
+            border-top: 1px solid var(--line);
+
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+
+            color: var(--gold);
+
+            letter-spacing: 0.2em;
         }
 
         .section-title {
-            font-size: 14px;
-            margin-bottom: 60px;
+            font-size: clamp(38px, 6vw, 90px);
+
+            font-weight: 400;
+
+            letter-spacing: -0.06em;
+
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+        }
+
+        .section-link {
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.18em;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            border-top: 1px solid var(--line);
         }
 
         .project {
+            position: relative;
+
             display: grid;
-            grid-template-columns: 80px 1fr 200px;
+
+            grid-template-columns: 70px 1fr 180px 30px;
+
+            align-items: center;
+
             gap: 30px;
-            padding: 25px 0;
-            border-top: 1px solid #bbb;
+
+            min-height: 150px;
+
+            border-bottom: 1px solid var(--line);
+
+            transition:
+                background 0.4s ease,
+                padding 0.4s ease;
         }
 
-        .project:last-child {
-            border-bottom: 1px solid #bbb;
+        .project:hover {
+            background: var(--navy);
+
+            color: var(--cream);
+
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .project-number {
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+
+            color: var(--gold);
         }
 
         .project-name {
-            font-size: 28px;
+            font-size: clamp(24px, 3vw, 44px);
+
+            letter-spacing: -0.04em;
         }
 
-        .project-description {
+        .project-category {
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+
+            line-height: 1.8;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.13em;
+        }
+
+        .project-arrow {
+            font-size: 20px;
+
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover .project-arrow {
+            transform: translateX(8px);
+        }
+
+
+        /* =========================
+           RESEARCH
+        ========================= */
+
+        .research {
+            background: var(--navy);
+
+            color: var(--cream);
+
+            min-height: 80vh;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .research .section-number {
+            color: var(--gold);
+        }
+
+        .research-title {
+            font-size: clamp(50px, 7vw, 110px);
+
+            line-height: 0.9;
+
+            letter-spacing: -0.07em;
+        }
+
+        .research-title span {
+            display: block;
+        }
+
+        .research-content {
             max-width: 500px;
         }
 
-        .project-year {
-            text-align: right;
+        .research-lead {
+            font-size: 24px;
+
+            line-height: 1.25;
+
+            margin-bottom: 45px;
         }
 
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+        .research-list {
+            border-top: 1px solid rgba(242,240,233,0.3);
         }
 
-        .large-text {
-            font-size: 42px;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-        }
+        .research-item {
+            padding: 18px 0;
 
-        footer {
-            padding: 40px;
-            border-top: 1px solid #111;
+            border-bottom: 1px solid rgba(242,240,233,0.3);
+
             display: flex;
+
+            justify-content: space-between;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.14em;
+        }
+
+        .research-item span:last-child {
+            color: var(--gold);
+        }
+
+
+        /* =========================
+           TEACHING
+        ========================= */
+
+        .teaching {
+            min-height: 75vh;
+        }
+
+        .teaching-grid {
+            display: grid;
+
+            grid-template-columns: 1.3fr 0.7fr;
+
+            gap: 100px;
+
+            align-items: end;
+        }
+
+        .teaching-statement {
+            font-size: clamp(45px, 7vw, 105px);
+
+            line-height: 0.92;
+
+            letter-spacing: -0.07em;
+        }
+
+        .teaching-statement em {
+            color: var(--gold);
+
+            font-style: normal;
+        }
+
+        .teaching-description {
+            max-width: 400px;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #dedbd1;
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 100px;
+        }
+
+        .about-name {
+            font-size: clamp(50px, 8vw, 120px);
+
+            line-height: 0.85;
+
+            letter-spacing: -0.07em;
+        }
+
+        .about-text {
+            max-width: 500px;
+
+            font-size: 18px;
+
+            line-height: 1.55;
+        }
+
+        .about-meta {
+            margin-top: 50px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .meta-item {
+            padding: 20px 0;
+
+            border-bottom: 1px solid var(--line);
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+
+            line-height: 1.7;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.13em;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            min-height: 70vh;
+
+            display: flex;
+
+            flex-direction: column;
+
             justify-content: space-between;
         }
 
-        footer a {
-            color: #111;
+        .contact-title {
+            font-size: clamp(70px, 13vw, 190px);
+
+            line-height: 0.78;
+
+            letter-spacing: -0.08em;
+
+            text-transform: uppercase;
         }
 
-        @media (max-width: 700px) {
+        .contact-title span {
+            display: block;
+
+            margin-left: 10vw;
+
+            color: var(--gold);
+        }
+
+        .contact-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+        }
+
+        .contact-email {
+            font-size: 22px;
+
+            border-bottom: 1px solid var(--navy);
+
+            padding-bottom: 6px;
+        }
+
+        .socials {
+            display: flex;
+
+            gap: 30px;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.15em;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 28px 42px;
+
+            background: var(--navy);
+
+            color: var(--cream);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: 8px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.15em;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
 
             header {
-                padding: 20px;
+                padding: 22px 20px;
             }
 
             nav {
@@ -144,277 +711,614 @@
             }
 
             .hero {
-                padding: 40px 20px;
+                padding: 130px 20px 60px;
+
+                min-height: 90vh;
             }
 
-            .hero-bottom {
-                flex-direction: column;
-                align-items: flex-start;
+            .hero-intro {
+                left: 20px;
+
+                top: 120px;
+            }
+
+            .hero-name {
+                font-size: clamp(54px, 16vw, 110px);
+            }
+
+            .hero-name .last {
+                margin-left: 4vw;
+            }
+
+            .hero-geometry {
+                width: 100vw;
+
+                right: -35vw;
+
+                opacity: 0.95;
+            }
+
+            .hero-side {
+                right: 20px;
+
+                bottom: 90px;
+            }
+
+            .scroll-label {
+                left: 20px;
             }
 
             .section {
-                padding: 70px 20px;
+                padding: 80px 20px;
+            }
+
+            .section-header {
+                margin-bottom: 45px;
             }
 
             .project {
-                grid-template-columns: 40px 1fr;
+                grid-template-columns: 35px 1fr 25px;
+
+                gap: 15px;
+
+                min-height: 120px;
             }
 
-            .project-year {
+            .project-category {
                 display: none;
             }
 
-            .two-column {
+            .research {
                 grid-template-columns: 1fr;
-                gap: 50px;
+
+                gap: 60px;
+
+                min-height: auto;
             }
 
-            .large-text {
-                font-size: 30px;
+            .teaching-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 60px;
+            }
+
+            .contact {
+                min-height: 65vh;
+            }
+
+            .contact-bottom {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 40px;
             }
 
             footer {
-                padding: 30px 20px;
+                padding: 25px 20px;
+
                 flex-direction: column;
-                gap: 20px;
+
+                gap: 15px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <header>
 
-        <h1>ALFERZO</h1>
+<!-- =========================
+     HEADER
+========================= -->
 
-        <nav>
-            <a href="#works">Works</a>
-            <a href="#research">Research</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#about">About</a>
-        </nav>
+<header>
 
-    </header>
+    <a href="#" class="logo">
+        ALFERZO
+    </a>
 
+    <nav>
 
-    <main>
+        <a href="#works">Works</a>
 
-        <!-- HERO -->
+        <a href="#research">Research</a>
 
-        <section class="hero">
+        <a href="#teaching">Teaching</a>
 
-            <div>
-                <div class="hero-title">
-                    Alvin<br>
-                    Fernandez
-                </div>
-            </div>
+        <a href="#about">About</a>
 
-            <div class="hero-bottom">
+        <a href="#contact">Contact</a>
 
-                <div class="hero-description">
-                    Architect / Educator / Researcher
-                </div>
+    </nav>
 
-                <div>
-                    Portfolio<br>
-                    2026
-                </div>
+</header>
 
-            </div>
 
-        </section>
 
+<!-- =========================
+     HERO
+========================= -->
 
-        <!-- SELECTED WORKS -->
+<section class="hero">
 
-        <section class="section" id="works">
+    <div class="hero-intro">
 
-            <div class="section-title">
-                Selected Works
-            </div>
+        <span>Architecture</span>
+        <span>Digital Design</span>
+        <span>Kinetic Systems</span>
+        <span>Research</span>
+        <span>Education</span>
 
-            <div class="project">
+    </div>
 
-                <div>01</div>
 
-                <div>
-                    <div class="project-name">
-                        Nama Project
-                    </div>
+    <div class="hero-geometry"></div>
 
-                    <p class="project-description">
-                        Deskripsi singkat project.
-                    </p>
-                </div>
 
-                <div class="project-year">
-                    2026
-                </div>
+    <div>
 
-            </div>
+        <h1 class="hero-name">
 
+            <span>Alvin</span>
 
-            <div class="project">
+            <span class="last">Fernandez</span>
 
-                <div>02</div>
+        </h1>
 
-                <div>
-                    <div class="project-name">
-                        Nama Project
-                    </div>
 
-                    <p class="project-description">
-                        Deskripsi singkat project.
-                    </p>
-                </div>
+        <p class="hero-role">
 
-                <div class="project-year">
-                    2025
-                </div>
+            Assistant Architect / Assistant Professor / Researcher
 
-            </div>
+        </p>
 
+    </div>
 
-            <div class="project">
 
-                <div>03</div>
+    <div class="hero-side">
 
-                <div>
-                    <div class="project-name">
-                        Nama Project
-                    </div>
+        <div>Spaces</div>
+        <div>Systems</div>
+        <div>People</div>
+        <div class="gold">Potential</div>
 
-                    <p class="project-description">
-                        Deskripsi singkat project.
-                    </p>
-                </div>
+    </div>
 
-                <div class="project-year">
-                    2024
-                </div>
 
-            </div>
+    <div class="scroll-label">
 
-        </section>
+        <span class="scroll-line"></span>
 
+        <span>Scroll / 01</span>
 
-        <!-- RESEARCH -->
+    </div>
 
-        <section class="section" id="research">
+</section>
 
-            <div class="section-title">
-                Research
-            </div>
 
-            <div class="two-column">
 
-                <div class="large-text">
-                    Research in architecture, digital design, computational systems and emerging spatial technologies.
-                </div>
+<!-- =========================
+     SELECTED WORKS
+========================= -->
 
-                <div>
-                    <p>
-                        Research Project 01
-                    </p>
+<section class="section" id="works">
 
-                    <br>
-
-                    <p>
-                        Research Project 02
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- TEACHING -->
-
-        <section class="section" id="teaching">
-
-            <div class="section-title">
-                Teaching
-            </div>
-
-            <div class="two-column">
-
-                <div class="large-text">
-                    Architecture education through design, technology and experimentation.
-                </div>
-
-                <div>
-                    <p>
-                        Teaching Project 01
-                    </p>
-
-                    <br>
-
-                    <p>
-                        Teaching Project 02
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-
-        <section class="section" id="about">
-
-            <div class="section-title">
-                About
-            </div>
-
-            <div class="two-column">
-
-                <div class="large-text">
-                    Alvin Fernandez
-                </div>
-
-                <div>
-                    <p>
-                        Architect / Educator / Researcher
-                    </p>
-
-                    <br>
-
-                    <p>
-                        Bio goes here.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer>
+    <div class="section-header">
 
         <div>
-            © 2026 Alvin Fernandez
+
+            <div class="section-number">
+                01
+            </div>
+
+            <h2 class="section-title">
+                Selected Works
+            </h2>
+
         </div>
 
+        <div class="section-link">
+            View Projects →
+        </div>
+
+    </div>
+
+
+    <div class="projects">
+
+
+        <a href="#" class="project">
+
+            <div class="project-number">
+                01
+            </div>
+
+            <div class="project-name">
+                Project Name
+            </div>
+
+            <div class="project-category">
+                Architecture<br>
+                2026
+            </div>
+
+            <div class="project-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <a href="#" class="project">
+
+            <div class="project-number">
+                02
+            </div>
+
+            <div class="project-name">
+                Project Name
+            </div>
+
+            <div class="project-category">
+                Kinetic Architecture<br>
+                2025
+            </div>
+
+            <div class="project-arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <a href="#" class="project">
+
+            <div class="project-number">
+                03
+            </div>
+
+            <div class="project-name">
+                Project Name
+            </div>
+
+            <div class="project-category">
+                Digital Fabrication<br>
+                2024
+            </div>
+
+            <div class="project-arrow">
+                →
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RESEARCH
+========================= -->
+
+<section class="section research" id="research">
+
+    <div>
+
+        <div class="section-number">
+            02 / Research
+        </div>
+
+        <h2 class="research-title">
+
+            <span>Ideas</span>
+            <span>In</span>
+            <span>Motion</span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="research-content">
+
+        <p class="research-lead">
+
+            Exploring the intersection between architecture, technology, systems and human experience.
+
+        </p>
+
+
+        <div class="research-list">
+
+            <div class="research-item">
+
+                <span>
+                    Research Project 01
+                </span>
+
+                <span>
+                    01
+                </span>
+
+            </div>
+
+
+            <div class="research-item">
+
+                <span>
+                    Research Project 02
+                </span>
+
+                <span>
+                    02
+                </span>
+
+            </div>
+
+
+            <div class="research-item">
+
+                <span>
+                    Research Project 03
+                </span>
+
+                <span>
+                    03
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TEACHING
+========================= -->
+
+<section class="section teaching" id="teaching">
+
+    <div class="section-header">
+
         <div>
-            <a href="mailto:your@email.com">
-                Email
-            </a>
-            &nbsp;&nbsp;
+
+            <div class="section-number">
+                03
+            </div>
+
+            <h2 class="section-title">
+                Teaching
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="teaching-grid">
+
+        <div class="teaching-statement">
+
+            Architecture
+            <br>
+
+            through
+            <br>
+
+            <em>experimentation.</em>
+
+        </div>
+
+
+        <div class="teaching-description">
+
+            <p>
+
+                Exploring architecture education through design,
+                technology, digital fabrication, computational
+                thinking and experimental spatial systems.
+
+            </p>
+
+            <br><br>
+
+            <p>
+
+                Teaching Project 01<br><br>
+
+                Teaching Project 02<br><br>
+
+                Teaching Project 03
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section about" id="about">
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-number">
+                04
+            </div>
+
+            <h2 class="section-title">
+                About
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-name">
+
+            Alvin
+            <br>
+            Fernandez
+
+        </div>
+
+
+        <div>
+
+            <div class="about-text">
+
+                Architect / Educator / Researcher
+
+                <br><br>
+
+                Bio goes here.
+
+                This space will later contain a more complete
+                profile, professional experience, academic
+                background and selected collaborations.
+
+            </div>
+
+
+            <div class="about-meta">
+
+                <div class="meta-item">
+
+                    Based<br>
+                    Indonesia
+
+                </div>
+
+
+                <div class="meta-item">
+
+                    Focus<br>
+                    Architecture / Technology
+
+                </div>
+
+
+                <div class="meta-item">
+
+                    Role<br>
+                    Assistant Professor
+
+                </div>
+
+
+                <div class="meta-item">
+
+                    Practice<br>
+                    Design / Research
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="section contact" id="contact">
+
+    <div>
+
+        <div class="section-number">
+            05 / Contact
+        </div>
+
+    </div>
+
+
+    <h2 class="contact-title">
+
+        Let's
+
+        <span>
+            Connect
+        </span>
+
+    </h2>
+
+
+    <div class="contact-bottom">
+
+        <a
+            href="mailto:your@email.com"
+            class="contact-email"
+        >
+            your@email.com
+        </a>
+
+
+        <div class="socials">
+
             <a href="#">
                 Instagram
             </a>
+
+            <a href="#">
+                LinkedIn
+            </a>
+
         </div>
 
-    </footer>
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+        ALFERZO
+    </div>
+
+    <div>
+        © 2026 Alvin Fernandez
+    </div>
+
+    <div>
+        Architecture / Research / Education
+    </div>
+
+</footer>
+
 
 </body>
 </html>
