@@ -1,13 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Alvin Fernandez</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f2;
+            color: #111;
+            line-height: 1.4;
+        }
+
+        header {
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #111;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #111;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            min-height: 75vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hero-title {
+            font-size: clamp(60px, 10vw, 160px);
+            font-weight: 400;
+            line-height: 0.9;
+            letter-spacing: -0.06em;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        .hero-description {
+            max-width: 500px;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 100px 40px;
+            border-top: 1px solid #111;
+        }
+
+        .section-title {
+            font-size: 14px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px;
+            gap: 30px;
+            padding: 25px 0;
+            border-top: 1px solid #bbb;
+        }
+
+        .project:last-child {
+            border-bottom: 1px solid #bbb;
+        }
+
+        .project-name {
+            font-size: 28px;
+        }
+
+        .project-description {
+            max-width: 500px;
+        }
+
+        .project-year {
+            text-align: right;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .large-text {
+            font-size: 42px;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        footer {
+            padding: 40px;
+            border-top: 1px solid #111;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer a {
+            color: #111;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section {
+                padding: 70px 20px;
+            }
+
+            .project {
+                grid-template-columns: 40px 1fr;
+            }
+
+            .project-year {
+                display: none;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .large-text {
+                font-size: 30px;
+            }
+
+            footer {
+                padding: 30px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Alvin Fernandez</h1>
-    <p>Architect · Educator · Researcher</p>
+    <header>
+
+        <h1>ALFERZO</h1>
+
+        <nav>
+            <a href="#works">Works</a>
+            <a href="#research">Research</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+                <div class="hero-title">
+                    Alvin<br>
+                    Fernandez
+                </div>
+            </div>
+
+            <div class="hero-bottom">
+
+                <div class="hero-description">
+                    Architect / Educator / Researcher
+                </div>
+
+                <div>
+                    Portfolio<br>
+                    2026
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SELECTED WORKS -->
+
+        <section class="section" id="works">
+
+            <div class="section-title">
+                Selected Works
+            </div>
+
+            <div class="project">
+
+                <div>01</div>
+
+                <div>
+                    <div class="project-name">
+                        Nama Project
+                    </div>
+
+                    <p class="project-description">
+                        Deskripsi singkat project.
+                    </p>
+                </div>
+
+                <div class="project-year">
+                    2026
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div>02</div>
+
+                <div>
+                    <div class="project-name">
+                        Nama Project
+                    </div>
+
+                    <p class="project-description">
+                        Deskripsi singkat project.
+                    </p>
+                </div>
+
+                <div class="project-year">
+                    2025
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div>03</div>
+
+                <div>
+                    <div class="project-name">
+                        Nama Project
+                    </div>
+
+                    <p class="project-description">
+                        Deskripsi singkat project.
+                    </p>
+                </div>
+
+                <div class="project-year">
+                    2024
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESEARCH -->
+
+        <section class="section" id="research">
+
+            <div class="section-title">
+                Research
+            </div>
+
+            <div class="two-column">
+
+                <div class="large-text">
+                    Research in architecture, digital design, computational systems and emerging spatial technologies.
+                </div>
+
+                <div>
+                    <p>
+                        Research Project 01
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Research Project 02
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEACHING -->
+
+        <section class="section" id="teaching">
+
+            <div class="section-title">
+                Teaching
+            </div>
+
+            <div class="two-column">
+
+                <div class="large-text">
+                    Architecture education through design, technology and experimentation.
+                </div>
+
+                <div>
+                    <p>
+                        Teaching Project 01
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Teaching Project 02
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="section" id="about">
+
+            <div class="section-title">
+                About
+            </div>
+
+            <div class="two-column">
+
+                <div class="large-text">
+                    Alvin Fernandez
+                </div>
+
+                <div>
+                    <p>
+                        Architect / Educator / Researcher
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Bio goes here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            © 2026 Alvin Fernandez
+        </div>
+
+        <div>
+            <a href="mailto:your@email.com">
+                Email
+            </a>
+            &nbsp;&nbsp;
+            <a href="#">
+                Instagram
+            </a>
+        </div>
+
+    </footer>
 
 </body>
 </html>
