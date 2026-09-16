@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Alvin Fernandez — Architect / Educator / Researcher</title>
+    <title>Alvin Fernandez</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
     <style>
 
         /* =====================================================
-           BASIC
+           RESET
         ===================================================== */
 
         * {
@@ -34,7 +34,7 @@
         }
 
         body {
-            background: #f3f1eb;
+            background: #f4f1e9;
             color: #0b1c2d;
             font-family: "Space Grotesk", sans-serif;
             overflow-x: hidden;
@@ -47,13 +47,11 @@
 
 
         :root {
-
             --navy: #0b1c2d;
-            --gold: #c6a052;
-            --cream: #f3f1eb;
-            --grey: #d9d6ce;
-            --line: rgba(11, 28, 45, 0.22);
-
+            --gold: #c5a15a;
+            --cream: #f4f1e9;
+            --soft: #dfdcd3;
+            --line: rgba(11, 28, 45, 0.20);
         }
 
 
@@ -62,7 +60,6 @@
         ===================================================== */
 
         header {
-
             position: fixed;
 
             top: 0;
@@ -70,7 +67,7 @@
 
             width: 100%;
 
-            padding: 25px 42px;
+            padding: 27px 42px;
 
             display: flex;
             justify-content: space-between;
@@ -78,47 +75,40 @@
 
             z-index: 100;
 
-            background: transparent;
+            background: rgba(244, 241, 233, 0.92);
+
+            backdrop-filter: blur(8px);
         }
 
 
         .logo {
-
             font-size: 19px;
-
             font-weight: 600;
 
             letter-spacing: 0.32em;
-
         }
 
 
         nav {
-
             display: flex;
-
-            gap: 30px;
+            gap: 31px;
 
             font-family: "DM Mono", monospace;
 
-            font-size: 10px;
+            font-size: 9px;
 
-            letter-spacing: 0.16em;
+            letter-spacing: 0.18em;
 
             text-transform: uppercase;
-
         }
 
 
         nav a {
-
             position: relative;
-
         }
 
 
         nav a::after {
-
             content: "";
 
             position: absolute;
@@ -132,14 +122,11 @@
             background: var(--gold);
 
             transition: width .3s ease;
-
         }
 
 
         nav a:hover::after {
-
             width: 100%;
-
         }
 
 
@@ -149,33 +136,29 @@
         ===================================================== */
 
         .hero {
-
-            height: 100vh;
-
-            min-height: 720px;
-
             position: relative;
 
-            padding: 120px 42px 50px;
+            height: 100vh;
+            min-height: 720px;
+
+            padding: 120px 42px 45px;
 
             overflow: hidden;
 
             display: flex;
-
             align-items: center;
-
         }
 
 
-        /* small discipline list */
+        /* =====================================================
+           LEFT DISCIPLINE LIST
+        ===================================================== */
 
         .hero-intro {
-
             position: absolute;
 
-            left: 42px;
-
-            top: 150px;
+            left: 70px;
+            top: 155px;
 
             z-index: 10;
 
@@ -183,214 +166,195 @@
 
             font-size: 10px;
 
-            line-height: 2;
+            line-height: 2.05;
 
-            letter-spacing: .2em;
+            letter-spacing: .19em;
 
             text-transform: uppercase;
-
         }
 
 
         .hero-intro::before {
-
             content: "";
 
             position: absolute;
 
+            left: -18px;
+            top: 0;
+
             width: 1px;
-
-            height: 105px;
-
-            left: -15px;
-
-            top: 1px;
+            height: 108px;
 
             background: var(--gold);
-
         }
 
 
         /* =====================================================
-           ARCHITECTURAL SHAPE
+           SIMPLE OVAL
         ===================================================== */
 
-        .hero-shape {
-
+        .hero-oval {
             position: absolute;
 
-            width: 61vw;
+            width: 520px;
+            height: 650px;
 
-            height: 83vh;
-
-            right: -5vw;
-
-            top: 11vh;
+            right: -120px;
+            top: 145px;
 
             background: var(--navy);
 
+            border-radius: 50%;
+
             z-index: 1;
-
-            clip-path: polygon(
-                34% 0%,
-                100% 0%,
-                100% 78%,
-                45% 100%,
-                0% 47%
-            );
-
         }
 
 
-        /* inner opening */
+        /* Gold arc */
 
-        .hero-shape::after {
-
+        .hero-oval::before {
             content: "";
 
             position: absolute;
 
-            width: 40%;
+            width: 430px;
+            height: 520px;
 
-            height: 46%;
-
-            right: 14%;
-
-            top: 21%;
-
-            background: var(--cream);
-
-            transform: rotate(31deg);
-
-        }
-
-
-        /* gold construction line */
-
-        .hero-shape::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 48%;
-
-            height: 53%;
-
-            right: 10%;
-
-            top: 16%;
+            left: -75px;
+            top: 65px;
 
             border: 1px solid var(--gold);
 
-            transform: rotate(31deg);
+            border-radius: 50%;
 
+            transform: rotate(-22deg);
         }
 
 
+        /* Smaller opening */
 
-        /* =====================================================
-           HERO TEXT
-        ===================================================== */
-
-        .hero-content {
-
-            position: relative;
-
-            z-index: 20;
-
-            width: 100%;
-
-        }
-
-
-        .hero-name {
-
-            font-size: clamp(
-                70px,
-                11vw,
-                175px
-            );
-
-            font-weight: 500;
-
-            line-height: .78;
-
-            letter-spacing: -.075em;
-
-            text-transform: uppercase;
-
-        }
-
-
-        .hero-name span {
-
-            display: block;
-
-        }
-
-
-        .hero-name .last {
-
-            margin-left: 5vw;
-
-        }
-
-
-        .hero-role {
-
-            margin-top: 45px;
-
-            font-family: "DM Mono", monospace;
-
-            font-size: clamp(
-                10px,
-                1vw,
-                14px
-            );
-
-            letter-spacing: .18em;
-
-            text-transform: uppercase;
-
-        }
-
-
-
-        /* =====================================================
-           RIGHT TEXT
-        ===================================================== */
-
-        .hero-side {
+        .hero-oval::after {
+            content: "";
 
             position: absolute;
 
-            right: 48px;
+            width: 180px;
+            height: 300px;
 
+            left: 85px;
+            top: 170px;
+
+            background: var(--cream);
+
+            border-radius: 50%;
+
+            transform: rotate(-22deg);
+        }
+
+
+
+        /* =====================================================
+           OVAL TEXT
+        ===================================================== */
+
+        .hero-side {
+            position: absolute;
+
+            right: 65px;
             top: 38%;
 
-            z-index: 30;
+            z-index: 10;
 
             color: var(--cream);
 
             font-family: "DM Mono", monospace;
 
-            font-size: 11px;
+            font-size: 10px;
 
-            line-height: 2.5;
+            line-height: 2.8;
 
             letter-spacing: .28em;
 
             text-transform: uppercase;
-
         }
 
 
         .hero-side .gold {
-
             color: var(--gold);
-
         }
+
+
+        .hero-side-line {
+            width: 50px;
+            height: 1px;
+
+            margin-top: 12px;
+
+            background: var(--gold);
+        }
+
+
+
+        /* =====================================================
+           MAIN NAME
+        ===================================================== */
+
+        .hero-content {
+            position: relative;
+
+            z-index: 20;
+
+            width: 100%;
+        }
+
+
+        .hero-name {
+            font-size: clamp(
+                75px,
+                10.5vw,
+                170px
+            );
+
+            font-weight: 500;
+
+            line-height: .80;
+
+            letter-spacing: -.075em;
+
+            text-transform: uppercase;
+
+            max-width: 1100px;
+        }
+
+
+        .hero-name span {
+            display: block;
+        }
+
+
+        .hero-name .last {
+            margin-left: 4vw;
+        }
+
+
+        .hero-role {
+            margin-top: 42px;
+
+            font-family: "DM Mono", monospace;
+
+            font-size: clamp(
+                9px,
+                .9vw,
+                13px
+            );
+
+            line-height: 1.6;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+        }
+
 
 
         /* =====================================================
@@ -398,20 +362,18 @@
         ===================================================== */
 
         .scroll {
-
             position: absolute;
 
+            left: 42px;
             bottom: 35px;
 
-            left: 42px;
-
-            z-index: 30;
+            z-index: 20;
 
             display: flex;
 
             align-items: center;
 
-            gap: 17px;
+            gap: 16px;
 
             font-family: "DM Mono", monospace;
 
@@ -420,18 +382,14 @@
             letter-spacing: .18em;
 
             text-transform: uppercase;
-
         }
 
 
         .scroll-line {
-
-            width: 70px;
-
+            width: 65px;
             height: 1px;
 
             background: var(--gold);
-
         }
 
 
@@ -441,18 +399,15 @@
         ===================================================== */
 
         .section {
-
             position: relative;
 
             padding: 120px 42px;
 
             border-top: 1px solid var(--line);
-
         }
 
 
         .section-top {
-
             display: flex;
 
             justify-content: space-between;
@@ -460,46 +415,40 @@
             align-items: flex-end;
 
             margin-bottom: 65px;
-
         }
 
 
         .section-number {
+            margin-bottom: 10px;
 
             font-family: "DM Mono", monospace;
 
-            font-size: 10px;
+            font-size: 9px;
 
             color: var(--gold);
 
             letter-spacing: .2em;
-
-            margin-bottom: 10px;
-
         }
 
 
         .section-title {
-
             font-size: clamp(
                 42px,
                 6vw,
-                92px
+                90px
             );
 
             font-weight: 400;
 
+            line-height: .9;
+
             letter-spacing: -.065em;
 
             text-transform: uppercase;
-
-            line-height: .9;
-
         }
 
 
         .section-link {
-
             font-family: "DM Mono", monospace;
 
             font-size: 9px;
@@ -507,24 +456,20 @@
             letter-spacing: .18em;
 
             text-transform: uppercase;
-
         }
 
 
 
         /* =====================================================
-           WORKS
+           SELECTED WORKS
         ===================================================== */
 
         .works {
-
             border-top: 1px solid var(--line);
-
         }
 
 
         .work {
-
             min-height: 155px;
 
             display: grid;
@@ -545,36 +490,29 @@
                 background .35s ease,
                 color .35s ease,
                 padding .35s ease;
-
         }
 
 
         .work:hover {
-
             background: var(--navy);
 
             color: var(--cream);
 
             padding-left: 25px;
-
             padding-right: 25px;
-
         }
 
 
         .work-number {
-
             font-family: "DM Mono", monospace;
 
             font-size: 10px;
 
             color: var(--gold);
-
         }
 
 
         .work-name {
-
             font-size: clamp(
                 25px,
                 3vw,
@@ -582,12 +520,10 @@
             );
 
             letter-spacing: -.04em;
-
         }
 
 
         .work-info {
-
             font-family: "DM Mono", monospace;
 
             font-size: 9px;
@@ -597,23 +533,19 @@
             letter-spacing: .12em;
 
             text-transform: uppercase;
-
         }
 
 
         .work-arrow {
-
             font-size: 22px;
 
-            transition: transform .3s ease;
-
+            transition:
+                transform .3s ease;
         }
 
 
         .work:hover .work-arrow {
-
             transform: translateX(8px);
-
         }
 
 
@@ -623,7 +555,6 @@
         ===================================================== */
 
         .research {
-
             min-height: 85vh;
 
             background: var(--navy);
@@ -632,24 +563,17 @@
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns:
+                1fr
+                1fr;
 
             gap: 100px;
 
             align-items: center;
-
-        }
-
-
-        .research .section-number {
-
-            color: var(--gold);
-
         }
 
 
         .research-title {
-
             font-size: clamp(
                 60px,
                 9vw,
@@ -659,49 +583,41 @@
             line-height: .78;
 
             letter-spacing: -.075em;
-
         }
 
 
         .research-title span {
-
             display: block;
-
         }
 
 
         .research-copy {
-
             max-width: 480px;
-
         }
 
 
         .research-lead {
-
-            font-size: 24px;
+            font-size: 23px;
 
             line-height: 1.3;
 
             margin-bottom: 50px;
-
         }
 
 
         .research-list {
-
-            border-top: 1px solid rgba(243,241,235,.3);
-
+            border-top:
+                1px solid
+                rgba(244,241,233,.3);
         }
 
 
         .research-item {
-
             padding: 18px 0;
 
             border-bottom:
                 1px solid
-                rgba(243,241,235,.3);
+                rgba(244,241,233,.3);
 
             display: flex;
 
@@ -714,14 +630,11 @@
             letter-spacing: .15em;
 
             text-transform: uppercase;
-
         }
 
 
         .research-item span:last-child {
-
             color: var(--gold);
-
         }
 
 
@@ -731,14 +644,11 @@
         ===================================================== */
 
         .teaching {
-
             min-height: 75vh;
-
         }
 
 
         .teaching-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -748,12 +658,10 @@
             gap: 100px;
 
             align-items: end;
-
         }
 
 
         .teaching-title {
-
             font-size: clamp(
                 50px,
                 8vw,
@@ -763,25 +671,20 @@
             line-height: .84;
 
             letter-spacing: -.075em;
-
         }
 
 
         .teaching-title span {
-
             color: var(--gold);
-
         }
 
 
         .teaching-copy {
-
             max-width: 430px;
 
             font-size: 17px;
 
             line-height: 1.6;
-
         }
 
 
@@ -791,14 +694,11 @@
         ===================================================== */
 
         .about {
-
-            background: #dfdcd3;
-
+            background: var(--soft);
         }
 
 
         .about-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -806,12 +706,10 @@
                 1fr;
 
             gap: 100px;
-
         }
 
 
         .about-name {
-
             font-size: clamp(
                 55px,
                 8vw,
@@ -821,23 +719,19 @@
             line-height: .82;
 
             letter-spacing: -.075em;
-
         }
 
 
         .about-copy {
-
             max-width: 500px;
 
             font-size: 18px;
 
             line-height: 1.55;
-
         }
 
 
         .about-meta {
-
             margin-top: 50px;
 
             display: grid;
@@ -846,16 +740,18 @@
                 1fr
                 1fr;
 
-            border-top: 1px solid var(--line);
-
+            border-top:
+                1px solid
+                var(--line);
         }
 
 
         .meta {
-
             padding: 20px 0;
 
-            border-bottom: 1px solid var(--line);
+            border-bottom:
+                1px solid
+                var(--line);
 
             font-family: "DM Mono", monospace;
 
@@ -866,7 +762,6 @@
             letter-spacing: .12em;
 
             text-transform: uppercase;
-
         }
 
 
@@ -876,7 +771,6 @@
         ===================================================== */
 
         .contact {
-
             min-height: 75vh;
 
             display: flex;
@@ -884,12 +778,10 @@
             flex-direction: column;
 
             justify-content: space-between;
-
         }
 
 
         .contact-title {
-
             font-size: clamp(
                 70px,
                 13vw,
@@ -901,45 +793,39 @@
             letter-spacing: -.08em;
 
             text-transform: uppercase;
-
         }
 
 
         .contact-title span {
-
             display: block;
 
             margin-left: 10vw;
 
             color: var(--gold);
-
         }
 
 
         .contact-bottom {
-
             display: flex;
 
             justify-content: space-between;
 
             align-items: flex-end;
-
         }
 
 
         .email {
-
             font-size: 22px;
 
-            border-bottom: 1px solid var(--navy);
+            border-bottom:
+                1px solid
+                var(--navy);
 
             padding-bottom: 5px;
-
         }
 
 
         .socials {
-
             display: flex;
 
             gap: 30px;
@@ -951,7 +837,6 @@
             letter-spacing: .15em;
 
             text-transform: uppercase;
-
         }
 
 
@@ -961,7 +846,6 @@
         ===================================================== */
 
         footer {
-
             background: var(--navy);
 
             color: var(--cream);
@@ -979,7 +863,6 @@
             letter-spacing: .15em;
 
             text-transform: uppercase;
-
         }
 
 
@@ -990,123 +873,118 @@
 
         @media (max-width: 800px) {
 
-
             header {
-
-                padding:
-                    22px
-                    20px;
-
+                padding: 22px 20px;
             }
 
 
             nav {
-
                 display: none;
-
             }
 
 
             .hero {
+                height: 850px;
 
-                min-height: 780px;
+                min-height: 850px;
 
                 padding:
-                    130px
+                    120px
                     20px
-                    60px;
-
+                    50px;
             }
 
 
             .hero-intro {
+                left: 38px;
 
-                left: 20px;
+                top: 120px;
 
-                top: 115px;
+                font-size: 8px;
+            }
 
+
+            .hero-intro::before {
+                height: 90px;
             }
 
 
             .hero-name {
-
                 font-size:
                     clamp(
                         55px,
                         15vw,
-                        105px
+                        100px
                     );
-
             }
 
 
             .hero-name .last {
-
                 margin-left: 3vw;
-
-            }
-
-
-            .hero-shape {
-
-                width: 100vw;
-
-                height: 72vh;
-
-                right: -38vw;
-
-                top: 23vh;
-
-            }
-
-
-            .hero-side {
-
-                right: 20px;
-
-                top: 47%;
-
-                font-size: 9px;
-
             }
 
 
             .hero-role {
-
-                font-size: 9px;
-
-                line-height: 1.8;
-
                 max-width: 90vw;
 
+                font-size: 8px;
+            }
+
+
+            .hero-oval {
+                width: 330px;
+                height: 430px;
+
+                right: -150px;
+                top: 350px;
+            }
+
+
+            .hero-oval::before {
+                width: 270px;
+                height: 350px;
+
+                left: -50px;
+                top: 40px;
+            }
+
+
+            .hero-oval::after {
+                width: 110px;
+                height: 200px;
+
+                left: 70px;
+                top: 115px;
+            }
+
+
+            .hero-side {
+                right: 30px;
+
+                top: 57%;
+
+                font-size: 8px;
             }
 
 
             .scroll {
-
                 left: 20px;
-
             }
 
 
             .section {
-
                 padding:
                     80px
                     20px;
-
             }
 
 
             .section-top {
-
                 margin-bottom: 45px;
-
             }
 
 
             .work {
-
                 grid-template-columns:
                     35px
                     1fr
@@ -1115,61 +993,48 @@
                 gap: 15px;
 
                 min-height: 120px;
-
             }
 
 
             .work-info {
-
                 display: none;
-
             }
 
 
             .research {
-
                 grid-template-columns:
                     1fr;
 
                 gap: 60px;
 
-                min-height:
-                    auto;
-
+                min-height: auto;
             }
 
 
             .teaching-grid,
             .about-grid {
-
                 grid-template-columns:
                     1fr;
 
                 gap: 60px;
-
             }
 
 
             .contact {
-
                 min-height: 70vh;
-
             }
 
 
             .contact-bottom {
-
                 flex-direction: column;
 
                 align-items: flex-start;
 
                 gap: 40px;
-
             }
 
 
             footer {
-
                 flex-direction: column;
 
                 gap: 15px;
@@ -1177,7 +1042,6 @@
                 padding:
                     25px
                     20px;
-
             }
 
         }
@@ -1238,36 +1102,25 @@
 
     <div class="hero-intro">
 
-        <span>
-            Architecture
-        </span>
+        <span>Architecture</span>
 
-        <span>
-            Digital Design
-        </span>
+        <span>Digital Design</span>
 
-        <span>
-            Kinetic Systems
-        </span>
+        <span>Kinetic Systems</span>
 
-        <span>
-            Research
-        </span>
+        <span>Research</span>
 
-        <span>
-            Education
-        </span>
+        <span>Education</span>
 
     </div>
 
 
 
-    <div class="hero-shape"></div>
+    <div class="hero-oval"></div>
 
 
 
     <div class="hero-content">
-
 
         <h1 class="hero-name">
 
@@ -1284,7 +1137,7 @@
 
         <div class="hero-role">
 
-            Assistant Architect
+            Architect
             /
             Assistant Professor
             /
@@ -1313,6 +1166,8 @@
         <div class="gold">
             Potential
         </div>
+
+        <div class="hero-side-line"></div>
 
     </div>
 
@@ -1388,7 +1243,6 @@
 
                 Architecture
                 <br>
-
                 2026
 
             </div>
@@ -1421,7 +1275,6 @@
 
                 Kinetic Architecture
                 <br>
-
                 2025
 
             </div>
@@ -1454,7 +1307,6 @@
 
                 Digital Fabrication
                 <br>
-
                 2024
 
             </div>
@@ -1493,17 +1345,11 @@
 
         <h2 class="research-title">
 
-            <span>
-                Ideas
-            </span>
+            <span>Ideas</span>
 
-            <span>
-                In
-            </span>
+            <span>In</span>
 
-            <span>
-                Motion
-            </span>
+            <span>Motion</span>
 
         </h2>
 
@@ -1512,7 +1358,6 @@
 
 
     <div class="research-copy">
-
 
         <p class="research-lead">
 
